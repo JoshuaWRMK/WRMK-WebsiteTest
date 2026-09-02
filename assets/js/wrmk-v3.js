@@ -6,6 +6,13 @@
 
   var DATA = window.WRMK_V3 || { offices: [], services: [], openMin: 510, closeMin: 1020 };
 
+  /* ==== CONTACT DESTINATION ====
+     The footer enquiry form ("Send enquiry") is not wired up to anything yet --
+     paste the real WRMK contact address here (check the WordPress export, e.g.
+     the Gravity Forms notification settings) and every copy of the form,
+     sitewide, will start sending. Leave blank to keep the form inert, as now. */
+  var WRMK_CONTACT_EMAIL = "";
+
   /* Staff profile breadcrumb: hardcoded as "Home / Our people / NAME", but if
      the visitor actually clicked through from a Services page, show that real
      path instead ("Home / Services / <the service> / NAME"). Services-page
@@ -325,11 +332,22 @@
     focusOffice(best.id);
   }).catch(function () { /* IP lookup blocked or unavailable; static fallback copy already in the markup */ });
 
-  /* Fallback contact form (shown only when Gravity Forms hasn't been wired up yet) */
-  var fallbackForm = document.querySelector('[data-fallback-form]');
-  if (fallbackForm) {
-    fallbackForm.addEventListener('submit', function (e) { e.preventDefault(); });
-  }
+  /* Fallback contact form (shown only when Gravity Forms hasn't been wired up yet).
+     With WRMK_CONTACT_EMAIL set above, this opens the visitor's own email app with
+     the enquiry pre-filled -- no server or third-party form service required. */
+  document.querySelectorAll('[data-fallback-form]').forEach(function (fallbackForm) {
+    fallbackForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!WRMK_CONTACT_EMAIL) return;
+      var name = fallbackForm.querySelector('input[type="text"]').value;
+      var email = fallbackForm.querySelector('input[type="email"]').value;
+      var phone = fallbackForm.querySelector('input[type="tel"]').value;
+      var message = fallbackForm.querySelector('textarea').value;
+      var subject = 'Website enquiry from ' + (name || 'the website');
+      var body = 'Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\n\n' + message;
+      window.location.href = 'mailto:' + WRMK_CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    });
+  });
 
   /* View tabs (e.g. AI at WRMK: "How we use AI" / "How clients use AI") */
   var viewsEl = document.querySelector('[data-views]');

@@ -120,7 +120,13 @@ for the wrmkvirtue child theme's front-page.php.
   background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 10px; margin: 6px 0 0;
   box-shadow: 0 20px 40px rgba(23,23,26,.12); list-style: none; z-index: 70;
 }
-.wrmk-v3-nav__has-dropdown:hover .wrmk-v3-nav__dropdown, .wrmk-v3-nav__has-dropdown:focus-within .wrmk-v3-nav__dropdown { display: flex; }
+/* Desktop-only: open the dropdown on mouse hover/focus. Scoped to min-width:861px
+   (the inverse of the mobile breakpoint below) because otherwise, on mobile, the
+   dropdown-toggle button keeps focus after being tapped, which kept :focus-within
+   true and held the panel open even after the tap that was meant to collapse it. */
+@media (min-width: 861px) {
+  .wrmk-v3-nav__has-dropdown:hover .wrmk-v3-nav__dropdown, .wrmk-v3-nav__has-dropdown:focus-within .wrmk-v3-nav__dropdown { display: flex; }
+}
 .wrmk-v3-nav__dropdown li { width: 100%; }
 .wrmk-v3-nav__dropdown-divider { height: 1px; margin: 4px 6px; background: var(--line); flex-shrink: 0; }
 .wrmk-v3-nav__dropdown li a {
@@ -219,7 +225,8 @@ for the wrmkvirtue child theme's front-page.php.
 .wrmk-v3-h2--sm { font-size: clamp(30px, 3.4vw, 46px); line-height: 1.06; }
 
 /* Services tabs */
-.wrmk-v3-tabs { display: flex; gap: 6px; background: #efedea; border-radius: 999px; padding: 5px; }
+.wrmk-v3-tabs { display: flex; flex-wrap: wrap; gap: 6px; background: #efedea; border-radius: 999px; padding: 5px; }
+@media (max-width: 400px) { .wrmk-v3-tabs { border-radius: 20px; } }
 .wrmk-v3-tabs__btn {
   padding: 11px 22px; border: none; border-radius: 999px; cursor: pointer;
   font-family: 'Oswald', system-ui, sans-serif; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;
