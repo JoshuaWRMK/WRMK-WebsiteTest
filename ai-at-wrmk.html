@@ -104,7 +104,12 @@
 <li><a href="do-it-online/employment-health-check.html">Employment Health Check</a></li>
 </ul>
 </li>
-<li class="is-active"><a href="ai-at-wrmk.html">AI</a></li>
+<li class="wrmk-v3-nav__has-dropdown is-active"><a href="ai-at-wrmk.html">AI</a><button type="button" class="wrmk-v3-nav__dropdown-toggle" aria-label="Toggle submenu">&#9662;</button>
+<ul class="wrmk-v3-nav__dropdown">
+<li><a href="ai-at-wrmk.html#firm">How we use AI</a></li>
+<li><a href="ai-at-wrmk.html#client">How clients use AI</a></li>
+</ul>
+</li>
 				</ul>
 				<button type="button" class="wrmk-v3-lang-toggle" aria-label="Switch the wording on this page">
 					<span class="wrmk-v3-lang-toggle__opt is-active" data-lang-btn="plain">Plain English</span>
@@ -119,7 +124,7 @@
 	<section class="wrmk-v3-innerhero">
 		<div class="wrmk-v3-innerhero__inner">
 			<div class="wrmk-v3-breadcrumb"><a href="index.html">Home</a> / AI at WRMK</div>
-			<h1 class="wrmk-v3-innerhero__title">AI at WRMK<span class="neu-badge">NEW: Plain English / Legal language</span></h1>
+			<h1 class="wrmk-v3-innerhero__title">AI at WRMK</h1>
 			<p class="wrmk-v3-innerhero__lead" data-lang="plain">How we use artificial intelligence inside the firm, and how you can use it well before you talk to us. Switch to Legal, top right, for the same page in full professional wording.</p>
 			<p class="wrmk-v3-innerhero__lead" data-lang="legal">The Firm's use of artificial intelligence systems, and the permissible use of such systems by clients in preparing instructions. Select Plain English, top right, for the same content in everyday wording.</p>
 			<div class="wrmk-v3-tabs" data-reveal style="margin-top:26px;">
@@ -363,6 +368,69 @@
 			<p style="margin-top:30px;max-width:70ch;font-size:16.5px;line-height:1.8;color:var(--char);">Send us a short note of what happened, in your own words, with the dates and the documents. If the AI raised a question you want answered, ask us the question &mdash; not the answer it gave you.</p>
 		</section>
 
+		<section class="wrmk-v3-section wrmk-v3-section--tight" style="background:var(--band);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+			<div data-reveal>
+				<h3 class="wrmk-v3-ai-subhead" data-lang="plain">Try it yourself</h3>
+				<h3 class="wrmk-v3-ai-subhead" data-lang="legal">Illustrative examples</h3>
+				<p data-lang="plain" style="color:var(--grey);max-width:60ch;margin-bottom:26px;">Tap a situation below to see the difference between sending us an AI's answer, and sending us what we actually need.</p>
+				<p data-lang="legal" style="color:var(--grey);max-width:60ch;margin-bottom:26px;">Select an example below to see the distinction between submitting generated analysis and submitting the material the Firm requires.</p>
+			</div>
+			<div class="wrmk-v3-aidemo" data-reveal>
+				<div class="wrmk-v3-aidemo__tabs" role="tablist">
+					<button type="button" class="wrmk-v3-aidemo__tab is-active" data-aidemo-btn="0">A bond dispute</button>
+					<button type="button" class="wrmk-v3-aidemo__tab" data-aidemo-btn="1">A builder dispute</button>
+					<button type="button" class="wrmk-v3-aidemo__tab" data-aidemo-btn="2">A family trust</button>
+					<button type="button" class="wrmk-v3-aidemo__tab" data-aidemo-btn="3">A redundancy</button>
+				</div>
+				<div class="wrmk-v3-aidemo__panels">
+					<div class="wrmk-v3-aidemo__panel is-active" data-aidemo-panel="0">
+						<div class="wrmk-v3-aidemo__col wrmk-v3-aidemo__col--before">
+							<span class="wrmk-v3-aidemo__label">&#10005; What people send us</span>
+							<p>"I asked an AI whether my landlord can keep my bond. It said landlords can withhold a bond only for unpaid rent or damage beyond normal wear and tear, and that I should apply to the Tenancy Tribunal if I disagree, and it explained the whole tribunal process and quoted several sections of the Residential Tenancies Act, but I'm not sure if any of that applies to my situation because my flatmate broke the oven and the landlord is blaming both of us&hellip;"</p>
+						</div>
+						<div class="wrmk-v3-aidemo__col wrmk-v3-aidemo__col--after">
+							<span class="wrmk-v3-aidemo__label">&#10003; What actually helps</span>
+							<p><strong>Facts:</strong> Flat, bond $1,200, moved out 12 March, flatmate broke the oven, landlord withheld $400, blaming both tenants.</p>
+							<p><strong>Question:</strong> Can he do that, and what should I do next?</p>
+						</div>
+					</div>
+					<div class="wrmk-v3-aidemo__panel" data-aidemo-panel="1">
+						<div class="wrmk-v3-aidemo__col wrmk-v3-aidemo__col--before">
+							<span class="wrmk-v3-aidemo__label">&#10005; What people send us</span>
+							<p>"ChatGPT told me that under the Construction Contracts Act I can issue a payment claim and if the builder doesn't respond within the right number of working days it becomes payable by default, and it gave me a whole template for a payment claim and explained adjudication, but I don't know if my situation with my builder actually qualifies for any of this&hellip;"</p>
+						</div>
+						<div class="wrmk-v3-aidemo__col wrmk-v3-aidemo__col--after">
+							<span class="wrmk-v3-aidemo__label">&#10003; What actually helps</span>
+							<p><strong>Facts:</strong> Renovation contract, builder overcharged by $8,000, work incomplete, no written contract signed.</p>
+							<p><strong>Question:</strong> What are my options to recover the money?</p>
+						</div>
+					</div>
+					<div class="wrmk-v3-aidemo__panel" data-aidemo-panel="2">
+						<div class="wrmk-v3-aidemo__col wrmk-v3-aidemo__col--before">
+							<span class="wrmk-v3-aidemo__label">&#10005; What people send us</span>
+							<p>"I looked up whether I still need my family trust and the AI said trusts can lose their protection if they're not run properly, listed about ten things trustees have to do like keeping records and meeting regularly, and said I should get legal advice, but it didn't know anything about my actual trust so I don't know which of those apply to me&hellip;"</p>
+						</div>
+						<div class="wrmk-v3-aidemo__col wrmk-v3-aidemo__col--after">
+							<span class="wrmk-v3-aidemo__label">&#10003; What actually helps</span>
+							<p><strong>Facts:</strong> Family trust set up in 2005, hasn't been reviewed since, trustees are my parents and me.</p>
+							<p><strong>Question:</strong> Does our trust still protect what it's meant to?</p>
+						</div>
+					</div>
+					<div class="wrmk-v3-aidemo__panel" data-aidemo-panel="3">
+						<div class="wrmk-v3-aidemo__col wrmk-v3-aidemo__col--before">
+							<span class="wrmk-v3-aidemo__label">&#10005; What people send us</span>
+							<p>"My employer wants to make my role redundant and I asked an AI about redundancy law in New Zealand, it gave me a long explanation about consultation obligations and selection criteria and genuine reasons, and said I might have a personal grievance claim, but I don't know if any of that fits what's actually happened to me&hellip;"</p>
+						</div>
+						<div class="wrmk-v3-aidemo__col wrmk-v3-aidemo__col--after">
+							<span class="wrmk-v3-aidemo__label">&#10003; What actually helps</span>
+							<p><strong>Facts:</strong> Told my role is redundant, given one week's notice, no consultation meeting held yet.</p>
+							<p><strong>Question:</strong> Is this being done properly, and what should I ask for?</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<section class="wrmk-v3-section wrmk-v3-section--tight">
 			<div class="wrmk-v3-ai-band" data-reveal>
 				<h3 data-lang="plain">Keep your own information out of it</h3>
@@ -443,7 +511,7 @@
 					<a href="sitemap.html">Sitemap</a>
 				</div>
 			</div>
-			<div class="wrmk-v3-footer__copyright">© 2026 WRMK. All rights reserved. WRMK Lawyers is the trading name for Webb Ross McNab Kilpatrick Limited. Content migrated from the firm's WordPress export; this is not the live production site.</div>
+			<div class="wrmk-v3-footer__copyright">© 2026 WRMK. All rights reserved. WRMK Lawyers is the trading name for Webb Ross McNab Kilpatrick Limited.</div>
 		</div>
 	</footer>
 </div>

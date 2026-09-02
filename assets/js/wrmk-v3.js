@@ -367,6 +367,16 @@
     if (initialView && document.querySelector('[data-view-btn="' + initialView + '"]')) setActiveView(initialView);
   }
 
+  /* AI at WRMK: "try it yourself" before/after demo tabs */
+  document.querySelectorAll('.wrmk-v3-aidemo__tab').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var demo = btn.closest('.wrmk-v3-aidemo');
+      var i = btn.getAttribute('data-aidemo-btn');
+      demo.querySelectorAll('.wrmk-v3-aidemo__tab').forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      demo.querySelectorAll('.wrmk-v3-aidemo__panel').forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-aidemo-panel') === i); });
+    });
+  });
+
   /* Our people: role / office / practice-area filters */
   var peopleGrid = document.querySelector('.wrmk-v3-staff-grid');
   if (peopleGrid) {
