@@ -105,6 +105,13 @@
 @media (max-width: 1080px) { .wrmk-v3-toolgrid, .wrmk-v3-toolgrid[style] { grid-template-columns: repeat(2, 1fr) !important; } }
 @media (max-width: 640px) { .wrmk-v3-toolgrid, .wrmk-v3-toolgrid[style] { grid-template-columns: 1fr !important; } }
 
+.wrmk-v3-toolgroup { margin: 0 0 40px; }
+.wrmk-v3-toolgroup:last-child { margin-bottom: 0; }
+.wrmk-v3-toolgroup__title {
+  font-family: 'Oswald', system-ui, sans-serif; font-weight: 500; font-size: 15px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink); margin: 0 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--orange);
+}
+
 /* ---- Our people: filter bar ---- */
 .wrmk-v3-people-filters { display: flex; flex-wrap: wrap; gap: 20px; align-items: end; margin-bottom: 18px; }
 .wrmk-v3-people-filters__field { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--grey); }
@@ -167,8 +174,6 @@
 .wrmk-v3-innerhero__lead { font-size: 17px; line-height: 1.6; color: var(--char); max-width: 68ch; margin: 0; }
 .wrmk-v3-innerhero__meta { display: flex; gap: 16px; font-size: 14px; color: var(--grey); }
 .neu-badge { display: inline-block; background: var(--orange); color: var(--ink); font-family: 'Oswald', system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; margin-left: 10px; vertical-align: middle; }
-.neu-banner { background: var(--ink); color: #c9c7c2; font-size: 13px; text-align: center; padding: 8px 16px; }
-.neu-banner a { color: #fff; text-decoration: underline; }
 
 /* ---- AI at WRMK: firm / client view tabs ---- */
 .wrmk-v3-aiviews [data-view-panel] { display: none; }

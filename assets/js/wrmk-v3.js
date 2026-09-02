@@ -200,6 +200,16 @@
     navToggle.addEventListener('click', function () { nav.classList.toggle('is-open'); });
   }
 
+  /* Mobile nav dropdown sections: collapsed by default, tap the chevron to
+     expand/collapse that one category (the top-level link still navigates). */
+  document.querySelectorAll('.wrmk-v3-nav__dropdown-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var li = btn.closest('.wrmk-v3-nav__has-dropdown');
+      if (li) li.classList.toggle('is-open');
+    });
+  });
+
   /* Close a nav dropdown after clicking a link inside it -- otherwise the clicked
      link keeps focus (especially on same-page hash links like Our people's role
      filters) and :focus-within holds the dropdown open even after the mouse leaves. */

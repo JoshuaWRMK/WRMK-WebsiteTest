@@ -76,7 +76,9 @@ for the wrmkvirtue child theme's front-page.php.
 .wrmk-v3-topbar__sep { color: #55544f; }
 .wrmk-v3-topbar__clock { color: #9d9c98; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .wrmk-v3-topbar__right { display: flex; align-items: center; gap: 20px; flex-shrink: 0; flex-wrap: wrap; }
-.wrmk-v3-topbar__right a { color: #fff; }
+.wrmk-v3-topbar__right a { color: #fff; -webkit-tap-highlight-color: transparent; }
+.wrmk-v3-topbar__right a:visited { color: #fff; }
+.wrmk-v3-topbar__right a:hover, .wrmk-v3-topbar__right a:active, .wrmk-v3-topbar__right a:focus { color: var(--orange); }
 .wrmk-v3-textsize { display: flex; align-items: center; gap: 10px; }
 .wrmk-v3-textsize__label { color: #9d9c98; }
 .wrmk-v3-textsize__btns { display: flex; gap: 4px; }
@@ -120,6 +122,7 @@ for the wrmkvirtue child theme's front-page.php.
 }
 .wrmk-v3-nav__has-dropdown:hover .wrmk-v3-nav__dropdown, .wrmk-v3-nav__has-dropdown:focus-within .wrmk-v3-nav__dropdown { display: flex; }
 .wrmk-v3-nav__dropdown li { width: 100%; }
+.wrmk-v3-nav__dropdown-divider { height: 1px; margin: 4px 6px; background: var(--line); flex-shrink: 0; }
 .wrmk-v3-nav__dropdown li a {
   display: block; width: 100%; padding: 10px 14px; white-space: nowrap;
   text-transform: none; letter-spacing: normal; font-size: 14px; font-family: 'Open Sans', system-ui, sans-serif;
@@ -139,6 +142,7 @@ for the wrmkvirtue child theme's front-page.php.
 .wrmk-v3-nav__cta:hover { background: var(--orange); }
 .wrmk-v3 .wrmk-v3-nav__cta:hover { color: var(--ink); }
 .wrmk-v3-nav-toggle { display: none; }
+.wrmk-v3-nav__dropdown-toggle { display: none; }
 
 /* Buttons */
 /* Note: selectors below are qualified with the compound .wrmk-v3-btn.wrmk-v3-btn--X (or .wrmk-v3 ancestor)
@@ -281,8 +285,9 @@ for the wrmkvirtue child theme's front-page.php.
 .wrmk-v3-office__status-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; display: block; }
 .wrmk-v3-office__address { font-size: 15px; line-height: 1.55; color: var(--grey); margin-bottom: 12px; white-space: pre-line; }
 .wrmk-v3-office__contact { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
-.wrmk-v3-office__phone { font-size: 16px; font-weight: 600; color: var(--char); }
-.wrmk-v3-office__phone:hover { color: var(--orange-deep); }
+.wrmk-v3-office__phone { font-size: 16px; font-weight: 600; color: var(--char); -webkit-tap-highlight-color: transparent; }
+.wrmk-v3-office__phone:visited { color: var(--char); }
+.wrmk-v3-office__phone:hover, .wrmk-v3-office__phone:active, .wrmk-v3-office__phone:focus { color: var(--orange-deep); }
 .wrmk-v3-office__hint { font-family: 'Oswald', system-ui, sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); visibility: hidden; }
 .wrmk-v3-office.is-active .wrmk-v3-office__hint, .wrmk-v3-office:hover .wrmk-v3-office__hint { visibility: visible; }
 .wrmk-v3-office .wrmk-v3-office__name a { color: inherit; text-decoration: none; }
@@ -394,8 +399,9 @@ for the wrmkvirtue child theme's front-page.php.
    (and its :hover variant) would otherwise win and force every office link orange-deep. */
 .wrmk-v3-footer .wrmk-v3-footer__office-name { font-size: 15.5px; color: #c9c7c2; }
 .wrmk-v3-footer .wrmk-v3-footer__office-name:hover { color: #f0a566; }
-.wrmk-v3-footer .wrmk-v3-footer__office-phone { font-size: 17px; font-weight: 600; color: #fff; }
-.wrmk-v3-footer .wrmk-v3-footer__office-phone:hover { color: #f0a566; }
+.wrmk-v3-footer .wrmk-v3-footer__office-phone { font-size: 17px; font-weight: 600; color: #fff; -webkit-tap-highlight-color: transparent; }
+.wrmk-v3-footer .wrmk-v3-footer__office-phone:visited { color: #fff; }
+.wrmk-v3-footer .wrmk-v3-footer__office-phone:hover, .wrmk-v3-footer .wrmk-v3-footer__office-phone:active, .wrmk-v3-footer .wrmk-v3-footer__office-phone:focus { color: #f0a566; }
 .wrmk-v3-footer .wrmk-v3-footer__office-address { flex-basis: 100%; font-size: 13.5px; color: #a8a6a1; }
 .wrmk-v3-footer .wrmk-v3-footer__office-address:hover { color: #f0a566; }
 
@@ -444,10 +450,19 @@ for the wrmkvirtue child theme's front-page.php.
   .wrmk-v3-nav { display: none; flex-basis: 100%; flex-direction: column; align-items: flex-start; padding-top: 14px; }
   .wrmk-v3-nav.is-open { display: flex; }
   .wrmk-v3-nav ul { flex-direction: column; align-items: flex-start; width: 100%; }
+  .wrmk-v3-nav__has-dropdown { position: relative; width: 100%; }
+  .wrmk-v3-nav__dropdown-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    position: absolute; top: 0; right: 0; width: 40px; height: 40px;
+    background: transparent; border: none; cursor: pointer; color: var(--char); font-size: 13px;
+    transition: transform 0.2s ease;
+  }
+  .wrmk-v3-nav__has-dropdown.is-open .wrmk-v3-nav__dropdown-toggle { transform: rotate(180deg); }
   .wrmk-v3-nav .wrmk-v3-nav__dropdown {
-    display: flex; position: static; box-shadow: none; border: none; background: transparent;
+    display: none; position: static; box-shadow: none; border: none; background: transparent;
     padding: 0 0 0 14px; margin: 0;
   }
+  .wrmk-v3-nav__has-dropdown.is-open .wrmk-v3-nav__dropdown { display: flex; }
   .wrmk-v3-nav__cta { margin-left: 0; margin-top: 6px; }
   .wrmk-v3-lang-toggle { margin-left: 0; margin-top: 6px; }
   .wrmk-v3-all, .wrmk-v3-online-grid { grid-template-columns: 1fr; }
