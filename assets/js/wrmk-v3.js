@@ -277,7 +277,17 @@
 
   officeEls.forEach(function (el) {
     var id = el.getAttribute('data-office');
-    el.addEventListener('click', function () { focusOffice(id); });
+    var goHref = el.getAttribute('data-office-href');
+    el.addEventListener('click', function (e) {
+      focusOffice(id);
+      if (goHref && !e.target.closest('a')) window.location.href = goHref;
+    });
+    el.addEventListener('keydown', function (e) {
+      if (goHref && (e.key === 'Enter' || e.key === ' ') && !e.target.closest('a')) {
+        e.preventDefault();
+        window.location.href = goHref;
+      }
+    });
     el.addEventListener('mouseenter', function () { focusOffice(id); });
   });
 
@@ -330,6 +340,8 @@
     if (geoDriveEl) geoDriveEl.textContent = '~' + drive + ' min';
     if (geoDirectionsEl) geoDirectionsEl.href = 'https://www.google.com/maps/dir/?api=1&destination=' + best.maps + '&origin=' + d.latitude + ',' + d.longitude;
     focusOffice(best.id);
+    var bestGeoTag = root.querySelector('[data-office="' + best.id + '"] [data-geo-tag]');
+    if (bestGeoTag) bestGeoTag.hidden = false;
   }).catch(function () { /* IP lookup blocked or unavailable; static fallback copy already in the markup */ });
 
   /* Fallback contact form (shown only when Gravity Forms hasn't been wired up yet).

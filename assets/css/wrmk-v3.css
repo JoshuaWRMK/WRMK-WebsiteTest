@@ -285,6 +285,17 @@ for the wrmkvirtue child theme's front-page.php.
 .wrmk-v3-office-list { display: flex; flex-direction: column; }
 .wrmk-v3-office { padding: 26px; border-bottom: 1px solid var(--line); cursor: pointer; background: transparent; box-shadow: inset 4px 0 0 transparent; transition: background-color 0.3s ease, box-shadow 0.3s ease; }
 .wrmk-v3-office.is-active, .wrmk-v3-office:hover { background: var(--tint); box-shadow: inset 4px 0 0 var(--orange); }
+/* Card variant: a standalone office grid (e.g. Contact us "Call or visit"), not a
+   list stacked inside a bordered map panel -- give it its own border/radius so it
+   doesn't rely on the map panel for visual containment. */
+.wrmk-v3-office.wrmk-v3-office--card {
+  border: 1px solid var(--line); border-bottom: 1px solid var(--line); border-radius: 18px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
+}
+.wrmk-v3-office.wrmk-v3-office--card:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(23,23,26,.1); }
+.wrmk-v3-office.wrmk-v3-office--card.is-active {
+  background: var(--tint); border-color: var(--orange); box-shadow: none;
+}
 .wrmk-v3-office__row { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; margin-bottom: 10px; }
 .wrmk-v3-office__name { font-family: 'Oswald', system-ui, sans-serif; font-weight: 500; font-size: 24px; text-transform: uppercase; line-height: 1.1; margin: 0; color: var(--ink); }
 .wrmk-v3-office__status { font-family: 'Oswald', system-ui, sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #8B8C97; white-space: nowrap; display: flex; align-items: center; gap: 6px; }
@@ -296,6 +307,7 @@ for the wrmkvirtue child theme's front-page.php.
 .wrmk-v3-office__phone:visited { color: var(--char); }
 .wrmk-v3-office__phone:hover, .wrmk-v3-office__phone:active, .wrmk-v3-office__phone:focus { color: var(--orange-deep); }
 .wrmk-v3-office__hint { font-family: 'Oswald', system-ui, sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); visibility: hidden; }
+.wrmk-v3-office__geo-tag { font-family: 'Oswald', system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange-deep); margin-bottom: 10px; }
 .wrmk-v3-office.is-active .wrmk-v3-office__hint, .wrmk-v3-office:hover .wrmk-v3-office__hint { visibility: visible; }
 .wrmk-v3-office .wrmk-v3-office__name a { color: inherit; text-decoration: none; }
 .wrmk-v3-office .wrmk-v3-office__name a:hover { color: var(--orange-deep); }
@@ -397,6 +409,18 @@ for the wrmkvirtue child theme's front-page.php.
 .wrmk-v3-footer .wrmk-v3-footer__kicker a, .wrmk-v3-footer .wrmk-v3-footer__kicker a:hover { color: inherit; text-decoration: none; cursor: pointer; }
 .wrmk-v3-footer__heading { font-family: 'Oswald', system-ui, sans-serif; font-weight: 400; font-size: 40px; text-transform: uppercase; color: #fff; margin: 0 0 12px; line-height: 1.08; }
 .wrmk-v3-footer__lead { margin: 0; color: #dedcd8; max-width: 42ch; }
+.wrmk-v3-footer__quickfacts { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.18); }
+.wrmk-v3-footer__quickfacts-title {
+  display: block; font-family: 'Oswald', system-ui, sans-serif; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: #f0a566; margin-bottom: 14px;
+}
+.wrmk-v3-footer__quickfacts-row { display: flex; flex-wrap: wrap; gap: 20px 40px; }
+.wrmk-v3-footer__quickfacts-row div { display: flex; flex-direction: column; gap: 5px; }
+.wrmk-v3-footer__quickfacts-row span { font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: #9d9c98; }
+.wrmk-v3-footer__quickfacts-row a, .wrmk-v3-footer__quickfacts-row strong { font-size: 15.5px; font-weight: 600; color: #fff; }
+.wrmk-v3-footer .wrmk-v3-footer__quickfacts a { -webkit-tap-highlight-color: transparent; }
+.wrmk-v3-footer .wrmk-v3-footer__quickfacts a:hover, .wrmk-v3-footer .wrmk-v3-footer__quickfacts a:active, .wrmk-v3-footer .wrmk-v3-footer__quickfacts a:focus { color: #f0a566; }
+.wrmk-v3-footer .wrmk-v3-footer__quickfacts a:visited { color: #fff; }
 .wrmk-v3-footer__office-list {
   display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, auto);
   grid-auto-flow: column; column-gap: 56px; max-width: 560px; margin-top: 28px;
